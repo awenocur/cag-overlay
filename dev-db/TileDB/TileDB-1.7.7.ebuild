@@ -32,7 +32,5 @@ src_configure() {
 		-DCATCH_INCLUDE_DIR=/usr/include/catch2
 	)
 	mkdir -p ${WORKDIR}/${P}_build/externals/src
-	mv ${WORKDIR}/oneTBB-${ONETBB_VERSION} ${WORKDIR}/${P}_build/externals/src/ep_tbb
-	mv ${WORKDIR}/zstd-${ZSTD_VERSION} ${WORKDIR}/${P}_build/externals/src/ep_zstd
 	cmake-utils_src_configure
 }
