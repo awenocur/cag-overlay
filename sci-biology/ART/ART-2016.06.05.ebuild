@@ -19,6 +19,7 @@ KEYWORDS="amd64 ~x86"
 
 RDEPEND="
 	>=sci-libs/gsl-2
+	sci-libs/gsl-extralinks
 	"
 DEPEND="
 	${RDEPEND}
