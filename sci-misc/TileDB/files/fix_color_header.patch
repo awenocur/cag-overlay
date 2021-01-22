@@ -1,0 +1,12 @@
+diff --git a/tiledb/common/logger.cc b/tiledb/common/logger.cc
+index 09d04f6..ebd38b7 100644
+--- a/tiledb/common/logger.cc
++++ b/tiledb/common/logger.cc
+@@ -33,6 +33,7 @@
+ #include "tiledb/common/logger.h"
+ 
+ #include <spdlog/sinks/stdout_sinks.h>
++#include <spdlog/sinks/stdout_color_sinks.h>
+ 
+ namespace tiledb {
+ namespace common {
