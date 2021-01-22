@@ -28,8 +28,6 @@ src_prepare() {
 	cmake_src_prepare
 	echo ',s/\(^ *[A-Z]* DESTINATION \)lib$/\1'"$(get_libdir)"'/
 w' | ed -s ${S}/src/CMakeLists.txt
-#	echo ',s/\(LIBRARY\)/blah/
-#w' | ed ${S}/src/CMakeLists.txt
 }
 
 src_configure() {
