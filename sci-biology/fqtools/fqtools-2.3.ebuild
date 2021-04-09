@@ -26,6 +26,7 @@ DEPEND="
 
 src_prepare() {
 	default
+	sed -e 's/CFLAGS+=-O2 -g/CFLAGS+=-O3 -fcommon/' -i Makefile || die
 }
 
 src_install() {
