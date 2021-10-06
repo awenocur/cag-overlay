@@ -1,0 +1,50 @@
+diff --git a/mira-4.9.6/src/other/sls/Makefile.in b/mira-4.9.6/src/other/sls/Makefile.in
+index ccd7d84..cd752be 100644
+--- a/src/other/sls/Makefile.in
++++ b/src/other/sls/Makefile.in
+@@ -221,7 +221,6 @@ mandir = @mandir@
+ mkdir_p = @mkdir_p@
+ oldincludedir = @oldincludedir@
+ pdfdir = @pdfdir@
+-prefix = @prefix@
+ program_transform_name = @program_transform_name@
+ psdir = @psdir@
+ sbindir = @sbindir@
+diff --git a/src/Makefile.in b/src/Makefile.in
+index 9fe6761..01c63a2 100644
+ diff --git a/src/other/sls/Makefile.in b/src/other/sls/Makefile.in
+index ccd7d84..15659e3 100644
+--- a/src/other/sls/Makefile.am
++++ b/src/other/sls/Makefile.am
+@@ -9,6 +9,6 @@ SUBDIRS = \
+ install-exec-hook:
+ 	cp mira-install-sls-rrna.sh $(DESTDIR)$(bindir) && \
+ 	mkdir -p $(prefix)/share/mira/mhs && \
+-	./mira-install-sls-rrna.sh rfam_rrna-21-12.sls.gz && \
++	./mira-install-sls-rrna.sh rfam_rrna-21-12.sls.gz $(prefix) && \
+ 	cd $(prefix)/share/mira/mhs && \
+ 	$(LN_S) -f rfam_rrna-21-12.mhs.gz filter_default_rrna.mhs.gz
+diff --git a/src/other/Makefile.in b/src/other/Makefile.in
+index be51366..f5631b0 100644
+--- a/src/other/Makefile.in
++++ b/src/other/Makefile.in
+@@ -221,7 +221,6 @@ mandir = @mandir@
+ mkdir_p = @mkdir_p@
+ oldincludedir = @oldincludedir@
+ pdfdir = @pdfdir@
+-prefix = @prefix@
+ program_transform_name = @program_transform_name@
+ psdir = @psdir@
+ sbindir = @sbindir@
+diff --git a/Makefile.in b/Makefile.in
+index aeb02ae..9d257fa 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -240,7 +240,6 @@ mandir = @mandir@
+ mkdir_p = @mkdir_p@
+ oldincludedir = @oldincludedir@
+ pdfdir = @pdfdir@
+-prefix = @prefix@
+ program_transform_name = @program_transform_name@
+ psdir = @psdir@
+ sbindir = @sbindir@
