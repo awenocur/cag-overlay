@@ -1,7 +1,7 @@
 # Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 MIRA_3RDPARTY_PV="06-07-2012"
 MY_PV="${PV/_}" # convert from mira-4.0_rc2 (Gentoo ebuild filename derived) to mira-4.0rc2 (upstream fromat)
@@ -28,11 +28,12 @@ DEPEND="${CDEPEND}
 	sys-devel/flex
 	app-editors/vim-core
 	dev-libs/expat"
+BDEPEND="doc? ( app-text/dblatex )"
 RDEPEND="${CDEPEND}"
 
-#DOCS=( AUTHORS GETTING_STARTED NEWS README HELP_WANTED
-#	THANKS doc/3rdparty/scaffolding_MIRA_BAMBUS.pdf )
-DOCS=( AUTHORS GETTING_STARTED NEWS README HELP_WANTED THANKS )
+DOCS=( AUTHORS GETTING_STARTED NEWS README HELP_WANTED
+	THANKS )
+#DOCS=( AUTHORS GETTING_STARTED NEWS README HELP_WANTED THANKS )
 
 PATCHES=(
 	"${FILESDIR}/${PN}-4.9.6-fix-install-path-prepare.patch"
@@ -75,20 +76,16 @@ src_configure() {
 		--with-boost-thread=boost_thread-mt
 }
 
-#src_compile() {
-#	base_src_compile
-#	# TODO: resolve docbook incompatibility for building docs
-#	use doc && emake -C doc clean docs
-#}
+src_compile() {
+	default
+	use doc && emake docs
+}
 
 src_install() {
-	PATH=${ED}/bin:${PATH} emake install prefix=${ED}
+	PATH=${ED}/usr/bin:${PATH} emake install prefix=${ED}/usr
 
 	dobin "${WORKDIR}"/3rdparty/{sff_extract,qual2ball,*.pl}
 	dodoc "${WORKDIR}"/3rdparty/{README.txt,midi_screen.fasta}
+	dodoc "${S}"/doc/docbook/*.pdf "${S}"/doc/docbook/*.html
 }
 
-pkg_postinst() {
-	einfo "Documentation is no longer built, you can find it at:"
-	einfo "http://mira-assembler.sourceforge.net/docs/DefinitiveGuideToMIRA.html"
-}
