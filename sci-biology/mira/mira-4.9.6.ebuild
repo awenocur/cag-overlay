@@ -78,7 +78,7 @@ src_configure() {
 
 src_compile() {
 	default
-	use doc && emake docs
+	emake docs
 }
 
 src_install() {
