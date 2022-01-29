@@ -70,10 +70,7 @@ src_prepare() {
 }
 
 src_configure() {
-	econf \
-		--with-boost="${EPREFIX}/usr/$(get_libdir)" \
-		--with-boost-libdir="${EPREFIX}/usr/$(get_libdir)" \
-		--with-boost-thread=boost_thread-mt
+	econf
 }
 
 src_compile() {
