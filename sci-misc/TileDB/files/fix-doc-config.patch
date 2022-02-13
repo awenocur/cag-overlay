@@ -1,0 +1,22 @@
+diff --git a/doc/source/conf.py b/doc/source/conf.py
+index 8286cedd..c520a06f 100644
+--- a/doc/source/conf.py
++++ b/doc/source/conf.py
+@@ -18,6 +18,8 @@ sys.path.insert(0, abspath(join(dirname(__file__))))
+ 
+ # Special handling on ReadTheDocs builds.
+ # Some of this code is from https://github.com/robotpy/robotpy-docs/blob/master/conf.py
++doxygen_xml_dir = os.environ.get('DOX_XML_DIR', None)
++tiledb_dir = os.environ.get('TILEDB_DIR', None)
+ readthedocs = os.environ.get('READTHEDOCS', None) == 'True'
+ rtd_version = os.environ.get('READTHEDOCS_VERSION', 'latest')
+ rtd_version = rtd_version if rtd_version in ['stable', 'latest'] else 'stable'
+@@ -76,8 +77,6 @@ version = '2.6'
+ release = '2.6.2'
+ 
+ # Breathe extension configuration.
+-tiledb_dir = '../../'
+-doxygen_xml_dir = tiledb_dir + 'build/xml/'
+ breathe_projects = {'TileDB-C': doxygen_xml_dir, 'TileDB-C++': doxygen_xml_dir}
+ breathe_default_project = 'TileDB-C'
+ breathe_projects_source = {
