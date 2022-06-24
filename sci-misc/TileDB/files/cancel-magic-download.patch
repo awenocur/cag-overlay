@@ -1,0 +1,16 @@
+e cmake/Modules/FindMagic_EP.cmake
+diff --git a/cmake/Modules/FindMagic_EP.cmake b/cmake/Modules/FindMagic_EP.cmake
+index 6779d349f..e8eb4b856 100644
+--- a/cmake/Modules/FindMagic_EP.cmake
++++ b/cmake/Modules/FindMagic_EP.cmake
+@@ -89,10 +89,6 @@ if(NOT TILEDB_LIBMAGIC_EP_BUILT)
+     # that was modified by tiledb to also build with cmake for nix
+     ExternalProject_Add(ep_magic
+       PREFIX "externals"
+-      GIT_REPOSITORY "https://github.com/TileDB-Inc/file-windows.git"
+-      GIT_TAG "5.38.1.tiledb"
+-      GIT_SUBMODULES_RECURSE TRUE
+-      UPDATE_COMMAND ""
+       CMAKE_ARGS
+         -DCMAKE_INSTALL_PREFIX=${TILEDB_EP_INSTALL_PREFIX}
+         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
