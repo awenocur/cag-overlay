@@ -19,7 +19,7 @@ IUSE=""
 S="${WORKDIR}/${P}/libtiledbvcf"
 CMAKE_MAKEFILE_GENERATOR=emake
 
-DEPEND=">=sci-misc/TileDB-2.1.6
+DEPEND=">=sci-misc/TileDB-2.9
 	sci-libs/htslib
 	dev-cpp/cli11[single-header]
 	>=dev-libs/spdlog-1.9"
